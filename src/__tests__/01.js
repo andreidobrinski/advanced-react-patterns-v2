@@ -24,8 +24,12 @@ test('renders a toggle component', () => {
 /*
 http://ws.kcd.im/?ws=react%20patterns&e=01&em=andreiidobrinski@gmail.com
 */
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
+test('I submitted my elaboration and feedback', () => {
+  const submitted = true // change this when you've submitted!
   expect(submitted).toBe(true)
 })
 ////////////////////////////////
+// Using an updater function when you need to reference the current state,
+// and using an object when you don't need the current state.
+// This is because of how react batches setState calls, and we can't be certain
+// that we know what the current state is at the time.

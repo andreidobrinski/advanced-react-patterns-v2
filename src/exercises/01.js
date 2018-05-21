@@ -10,7 +10,7 @@ class Toggle extends React.Component {
 
 
 // if you need to reference current state, use an updater function,
-// if not, use an object
+// if not, use an object.
   toggle = () => {
     this.setState(
       currentState => {
