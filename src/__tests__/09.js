@@ -1,7 +1,7 @@
 import React from 'react'
 import {renderToggle, Simulate} from '../../test/utils'
-import Usage from '../exercises-final/09'
-// import Usage from '../exercises/09'
+// import Usage from '../exercises-final/09'
+import Usage from '../exercises/09'
 
 test('renders a toggle component', () => {
   const handleToggle = jest.fn()
@@ -95,8 +95,11 @@ test('can click too much', () => {
 /*
 http://ws.kcd.im/?ws=react%20patterns&e=09&em=andreiidobrinski@gmail.com
 */
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
+test('I submitted my elaboration and feedback', () => {
+  const submitted = true // change this when you've submitted!
   expect(submitted).toBe(true)
 })
 ////////////////////////////////
+// adding a type property to the state reducer allows us to let a
+// certain type ('forced', in the example) to
+// bypass the state update block we implemented earlier.
