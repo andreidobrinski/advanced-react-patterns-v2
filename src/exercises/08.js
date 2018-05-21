@@ -32,6 +32,32 @@ class Toggle extends React.Component {
   }
   initialState = {on: this.props.initialOn}
   state = this.initialState
+  internalSetState = (changes, callback) => {
+    this.setState(currentState => {
+      const changesObject =
+        typeof changes === 'function' ? changes(currentState) : changes
+      const reducedChanges = this.props.stateReducer(
+        currentState,
+        changesObject,
+      ) || {}
+      // this will prevent an unneccesary re-render
+      return Object.keys(reducedChanges).length ? reducedChanges : null
+    }, callback)
+  }
+
+  // or done by using the map function:
+
+  // internalSetState = (changes, callback) => {
+  //   this.setState(currentState => {
+  //     return [changes]
+  //       .map(c => typeof changes === 'function' ? c(currentState) : c)
+  //       .map(c => this.props.stateReducer(currentState, c) || {})
+  //       .map(c => Object.keys(c).length ? c : null)[0]
+  //   }, callback)
+  // }
+
+  // above: keeps it cleaner without having to use variables
+
   // 🐨 let's add a method here called `internalSetState`. It will simulate
   // the same API as `setState(updater, callback)`:
   // - updater: (changes object or function that returns the changes object)
@@ -49,11 +75,11 @@ class Toggle extends React.Component {
   // 🐨 Finally, update all pre-existing instances of this.setState
   // to this.internalSetState
   reset = () =>
-    this.setState(this.initialState, () =>
+    this.internalSetState(this.initialState, () =>
       this.props.onReset(this.state.on),
     )
   toggle = () =>
-    this.setState(
+    this.internalSetState(
       ({on}) => ({on: !on}),
       () => this.props.onToggle(this.state.on),
     )

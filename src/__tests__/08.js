@@ -1,7 +1,7 @@
 import React from 'react'
 import {renderToggle, Simulate} from '../../test/utils'
-import Usage from '../exercises-final/08'
-// import Usage from '../exercises/08'
+// import Usage from '../exercises-final/08'
+import Usage from '../exercises/08'
 
 test('renders a toggle component', () => {
   const handleToggle = jest.fn()
@@ -74,8 +74,14 @@ test('can click too much', () => {
 /*
 http://ws.kcd.im/?ws=react%20patterns&e=08&em=andreiidobrinski@gmail.com
 */
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
+test('I submitted my elaboration and feedback', () => {
+  const submitted = true // change this when you've submitted!
   expect(submitted).toBe(true)
 })
 ////////////////////////////////
+// Implementing a state reducer pattern can create an internal state
+// that only the component in question needs to know about.
+// This state can be used to restrict the user from making an action outside
+// the scope of the component. eg. Restricting a user to a maximum of 4 taps
+// before rendering a "whoa, you've clicked too much" and
+// blocking them from changing the state.
