@@ -65,19 +65,20 @@ class Toggle extends React.Component {
       {contextValue => (<Switch on={contextValue.on} onClick={contextValue.toggle} {...props} />)}
     </ToggleContext.Consumer>
   )
-  state = {on: false}
   toggle = () =>
     this.setState(
       ({on}) => ({on: !on}),
       () => this.props.onToggle(this.state.on),
     )
+  // adding toggle to state and using value={this.state} helps performance issues
+  // by only rerendering when state has been affected via setState
+  state = {on: false, toggle: this.toggle}
   render() {
-    return <ToggleContext.Provider value={{
-      on: this.state.on,
-      toggle: this.toggle,
-    }}>
-      {this.props.children}
-    </ToggleContext.Provider>
+    return (
+      <ToggleContext.Provider value={this.state}>
+        {this.props.children}
+      </ToggleContext.Provider>
+    )
   }
 }
 

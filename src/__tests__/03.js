@@ -24,8 +24,12 @@ test('renders a toggle component', () => {
 /*
 http://ws.kcd.im/?ws=react%20patterns&e=03&em=andreiidobrinski@gmail.com
 */
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
+test('I submitted my elaboration and feedback', () => {
+  const submitted = true // change this when you've submitted!
   expect(submitted).toBe(true)
 })
 ////////////////////////////////
+// Using the context api to pass information into children components.
+// Using value={this.state} to help with performance issues, so that
+// the consumer components only need to rerender when state
+// has been affected via setState
