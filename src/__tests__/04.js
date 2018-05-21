@@ -1,7 +1,7 @@
 import React from 'react'
 import {renderToggle, Simulate} from '../../test/utils'
-import Usage from '../exercises-final/04'
-// import Usage from '../exercises/04'
+// import Usage from '../exercises-final/04'
+import Usage from '../exercises/04'
 
 test('renders a toggle component', () => {
   const handleToggle = jest.fn()
@@ -36,8 +36,12 @@ test('can also toggle with the button', () => {
 /*
 http://ws.kcd.im/?ws=react%20patterns&e=04&em=andreiidobrinski@gmail.com
 */
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
+test('I submitted my elaboration and feedback', () => {
+  const submitted = true // change this when you've submitted!
   expect(submitted).toBe(true)
 })
 ////////////////////////////////
+// Render props are great for separating the logic of a component,
+// while giving the child component full flexibility for the UI.
+// Using the render props as a child within the parent component tag is cleaner
+// than as a render prop (render={}) so that no other important props are missed.
