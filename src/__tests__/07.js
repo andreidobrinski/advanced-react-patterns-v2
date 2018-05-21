@@ -1,7 +1,7 @@
 import React from 'react'
 import {renderToggle, Simulate} from '../../test/utils'
-import Usage from '../exercises-final/07'
-// import Usage from '../exercises/07'
+// import Usage from '../exercises-final/07'
+import Usage from '../exercises/07'
 
 test('renders a toggle component', () => {
   const handleToggle = jest.fn()
@@ -36,8 +36,10 @@ test('can reset the state of the toggle', () => {
 /*
 http://ws.kcd.im/?ws=react%20patterns&e=07&em=andreiidobrinski@gmail.com
 */
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
+test('I submitted my elaboration and feedback', () => {
+  const submitted = true // change this when you've submitted!
   expect(submitted).toBe(true)
 })
 ////////////////////////////////
+// lets you initialize it and reset it in the render prop
+// as well as keeping the state object in sync with initialState
