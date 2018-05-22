@@ -1,8 +1,8 @@
 import React from 'react'
 import chalk from 'chalk'
 import {renderToggle, render} from '../../test/utils'
-import Usage, {withToggle} from '../exercises-final/12'
-// import Usage, {withToggle} from '../exercises/12'
+// import Usage, {withToggle} from '../exercises-final/12'
+import Usage, {withToggle} from '../exercises/12'
 
 test('renders a toggle component', () => {
   const handleToggle = jest.fn()
@@ -83,8 +83,11 @@ test('handles static properties', () => {
 /*
 http://ws.kcd.im/?ws=react%20patterns&e=11&em=andreiidobrinski@gmail.com
 */
-test.skip('I submitted my elaboration and feedback', () => {
-  const submitted = false // change this when you've submitted!
+test('I submitted my elaboration and feedback', () => {
+  const submitted = true // change this when you've submitted!
   expect(submitted).toBe(true)
 })
 ////////////////////////////////
+// higher order components are functions that render components.
+// lots of steps need to be taken to make sure they are unobservable in the DOM
+// and look like the component that they're supposed to render
